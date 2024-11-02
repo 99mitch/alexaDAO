@@ -1,13 +1,9 @@
 import { BasciConnect } from "components/ConnectWallet";
-import { EXAMPLE_ADDRESSES } from "config/constants/addresses";
-import { ChainId } from "config/constants/chainId";
-import { useDynamicExampleContract, useStaticExampleContract } from "hooks/useContract";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 
 const Example = () => {
-    const StaticExampleInstance = useStaticExampleContract(EXAMPLE_ADDRESSES[ChainId.RINKEBY], ChainId.RINKEBY);
-    const DynamicExampleInstance = useDynamicExampleContract(EXAMPLE_ADDRESSES, true);
+
     const [count, setCount] = useState("");
     const { isConnected } = useAccount();
 
@@ -15,7 +11,6 @@ const Example = () => {
         init();
     }, []);
     const init = async () => {
-        const count = await StaticExampleInstance.getCount();
         setCount(count.toString());
     };
     return (
@@ -57,15 +52,7 @@ const Example = () => {
                                     cursor: "pointer",
                                 }}
                                 onClick={async () => {
-                                    try {
-                                        console.log(DynamicExampleInstance);
-
-                                        const tx = await DynamicExampleInstance.setCount();
-                                        await tx.wait();
-                                        init();
-                                    } catch (error) {
-                                        console.log(error);
-                                    }
+  
                                 }}
                             >
                                 setCount(write Contract)
