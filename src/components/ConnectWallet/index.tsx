@@ -1,93 +1,111 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
+import { ShoppingCartIcon } from "@heroicons/react/outline"; // Import the cart icon
 
 export const CustomConnect = () => {
-    return (
-        <ConnectButton.Custom>
-            {({
-                account,
-                chain,
-                openAccountModal,
-                openChainModal,
-                openConnectModal,
-                authenticationStatus,
-                mounted,
-            }) => {
-                // Note: If your app doesn't use authentication, you
-                // can remove all 'authenticationStatus' checks
-                const ready = mounted && authenticationStatus !== "loading";
-                const connected =
-                    ready && account && chain && (!authenticationStatus || authenticationStatus === "authenticated");
-                return (
-                    <div
-                        {...(!ready && {
-                            "aria-hidden": true,
-                            style: {
-                                opacity: 0,
-                                pointerEvents: "none",
-                                userSelect: "none",
-                            },
-                        })}
-                    >
-                        {(() => {
-                            if (!connected) {
-                                return (
-                                    <button onClick={openConnectModal} type="button">
-                                        Connect Wallet
-                                    </button>
-                                );
-                            }
-                            if (chain.unsupported) {
-                                return (
-                                    <button onClick={openChainModal} type="button">
-                                        Wrong network
-                                    </button>
-                                );
-                            }
-                            return (
-                                <div style={{ display: "flex", gap: 12 }}>
-                                    <button
-                                        onClick={openChainModal}
-                                        style={{ display: "flex", alignItems: "center" }}
-                                        type="button"
-                                    >
-                                        {chain.hasIcon && (
-                                            <div
-                                                style={{
-                                                    background: chain.iconBackground,
-                                                    width: 12,
-                                                    height: 12,
-                                                    borderRadius: 999,
-                                                    overflow: "hidden",
-                                                    marginRight: 4,
-                                                }}
-                                            >
-                                                {chain.iconUrl && (
-                                                    <Image
-                                                        alt={chain.name ?? "Chain icon"}
-                                                        src={chain.iconUrl}
-                                                        width={12}
-                                                        height={12}
-                                                    />
-                                                )}
-                                            </div>
-                                        )}
-                                        {chain.name}
-                                    </button>
-                                    <button onClick={openAccountModal} type="button">
-                                        {account.displayName}
-                                        {account.displayBalance ? ` (${account.displayBalance})` : ""}
-                                    </button>
-                                </div>
-                            );
-                        })()}
-                    </div>
-                );
-            }}
-        </ConnectButton.Custom>
-    );
-};
+  return (
+    <ConnectButton.Custom>
+      {({
+        account,
+        chain,
+        openAccountModal,
+        openChainModal,
+        openConnectModal,
+        authenticationStatus,
+        mounted,
+      }) => {
+        const ready = mounted && authenticationStatus !== "loading";
+        const connected =
+          ready &&
+          account &&
+          chain &&
+          (!authenticationStatus || authenticationStatus === "authenticated");
 
+        return (
+          <div
+            {...(!ready && {
+              "aria-hidden": true,
+              style: {
+                opacity: 0,
+                pointerEvents: "none",
+                userSelect: "none",
+              },
+            })}
+          >
+            {(() => {
+              if (!connected) {
+                return (
+                  <button
+                    onClick={openConnectModal}
+                    type="button"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ShoppingCartIcon className="h-6 w-6 text-white" />
+                    {/* Cart Icon */}
+                  </button>
+                );
+              }
+              if (chain.unsupported) {
+                return (
+                  <button
+                    onClick={openChainModal}
+                    type="button"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      background: "none",
+                    }}
+                  >
+                    <ShoppingCartIcon className="h-6 w-6 text-white" />
+                    <span style={{ marginLeft: "8px" }}>Wrong network</span>
+                  </button>
+                );
+              }
+              return (
+                <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                  <button
+                    onClick={openAccountModal}
+                    type="button"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      background: "none",
+                      marginLeft: "10px",
+                      marginRight: "10px",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                    }}
+                  >
+                    <ShoppingCartIcon
+                      className="h-6 w-6 text-white"
+                      style={{ color: "white" }}
+                    />{" "}
+                    {/* Ensures the icon is white */}
+                    <span
+                      style={{
+                        marginLeft: "10px",
+                        color: "white",
+                        fontSize: "1vw",
+                      }}
+                    >
+                      {account.displayBalance
+                        ? `${account.displayBalance}`
+                        : ""}
+                    </span>
+                  </button>
+                </div>
+              );
+            })()}
+          </div>
+        );
+      }}
+    </ConnectButton.Custom>
+  );
+};
 export const BasciConnect = () => {
-    return <ConnectButton></ConnectButton>;
+  return <ConnectButton></ConnectButton>;
 };

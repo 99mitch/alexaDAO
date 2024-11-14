@@ -1,4 +1,5 @@
 import { BasciConnect } from "components/ConnectWallet";
+import NavBar from "components/navbar";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 
