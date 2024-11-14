@@ -4,8 +4,26 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { publicProvider } from "wagmi/providers/public";
 
+const baseChain = {
+    id: 8453,  // Base mainnet chain ID
+    name: 'Base',
+    network: 'base',
+    nativeCurrency: {
+      name: 'Base',
+      symbol: 'ETH',
+      decimals: 18,
+    },
+    rpcUrls: {
+      default: 'https://mainnet.base.org',
+    },
+    blockExplorers: {
+      default: { name: 'BaseScan', url: 'https://basescan.org' },
+    },
+    testnet: false,
+  };
+
 export const { chains, provider, webSocketProvider } = configureChains(
-    [chain.mainnet, chain.goerli, chain.rinkeby, chain.kovan, chain.ropsten],
+    [chain.mainnet, chain.goerli, chain.rinkeby, chain.kovan, chain.ropsten, baseChain],
     [
         alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_ID }),
         jsonRpcProvider({ rpc: (chain) => ({ http: chain.rpcUrls.default }) }),
@@ -30,10 +48,6 @@ const connectors = connectorsForWallets([
             wallet.coinbase({ appName: "Coinbase", chains }),
             ...(needsInjectedWalletFallback ? [wallet.injected({ chains, shimDisconnect: true })] : []),
         ],
-    },
-    {
-        groupName: "Other",
-        wallets: [wallet.trust({ chains, shimDisconnect: true }), wallet.steak({ chains }), wallet.imToken({ chains })],
     },
 ]);
 

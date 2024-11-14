@@ -6,7 +6,6 @@
         "skipLibCheck": true,
         "strict": false,
         "forceConsistentCasingInFileNames": true,
-        "suppressImplicitAnyIndexErrors": true,
         "noEmit": true,
         "esModuleInterop": true,
         "module": "esnext",
@@ -17,6 +16,6 @@
         "incremental": true,
         "baseUrl": "./src"
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/swap.jsx"],
     "exclude": ["node_modules"]
 }
