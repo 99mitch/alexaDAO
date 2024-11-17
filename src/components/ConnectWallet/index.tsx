@@ -1,5 +1,4 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import Image from "next/image";
 import { ShoppingCartIcon } from "@heroicons/react/outline"; // Import the cart icon
 
 export const CustomConnect = () => {
@@ -31,7 +30,14 @@ export const CustomConnect = () => {
                 userSelect: "none",
               },
             })}
+            style={{ display: "flex", alignItems: "center", gap: "12px" }}
           >
+            <ShoppingCartIcon
+              className="h-6 w-6 text-white"
+              style={{ color: "white" }}
+            />
+            {/* Always show the cart icon */}
+
             {(() => {
               if (!connected) {
                 return (
@@ -41,10 +47,15 @@ export const CustomConnect = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
+                      background: "none",
+                      border: "1px solid white",
+                      borderRadius: "8px",
+                      padding: "8px 15px",
+                      color: "white",
+                      cursor: "pointer",
                     }}
                   >
-                    <ShoppingCartIcon className="h-6 w-6 text-white" />
-                    {/* Cart Icon */}
+                    Connect Wallet
                   </button>
                 );
               }
@@ -57,9 +68,9 @@ export const CustomConnect = () => {
                       display: "flex",
                       alignItems: "center",
                       background: "none",
+                      color: "white",
                     }}
                   >
-                    <ShoppingCartIcon className="h-6 w-6 text-white" />
                     <span style={{ marginLeft: "8px" }}>Wrong network</span>
                   </button>
                 );
@@ -80,14 +91,8 @@ export const CustomConnect = () => {
                       padding: 0,
                     }}
                   >
-                    <ShoppingCartIcon
-                      className="h-6 w-6 text-white"
-                      style={{ color: "white" }}
-                    />{" "}
-                    {/* Ensures the icon is white */}
                     <span
                       style={{
-                        marginLeft: "10px",
                         color: "white",
                         fontSize: "1vw",
                       }}
@@ -106,6 +111,7 @@ export const CustomConnect = () => {
     </ConnectButton.Custom>
   );
 };
-export const BasciConnect = () => {
-  return <ConnectButton></ConnectButton>;
+
+export const BasicConnect = () => {
+  return <ConnectButton />;
 };

@@ -1,0 +1,13 @@
+.pageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pageWrapper.transitioning {
+  opacity: 0;
+  transform: translateY(10px); /* Slight slide down effect */
+}
