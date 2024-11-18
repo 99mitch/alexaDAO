@@ -1,5 +1,10 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
+  const formatAddress = (address: string | undefined) => {
+    if (!address) return '';
+    return `${address.slice(0, 5)}...${address.slice(-5)}`;
+  };
+
 export const CustomConnectLogin = () => {
   return (
     <ConnectButton.Custom>
@@ -107,7 +112,7 @@ export const CustomConnectLogin = () => {
                       padding: "15px",
                       fontSize: "16px",
                       fontWeight: "bold",
-                      backgroundColor: "#febd69",
+                      backgroundColor: "#FF9900",
                       borderRadius: "8px",
                       color: "white",
                       border: "none",
@@ -118,7 +123,7 @@ export const CustomConnectLogin = () => {
                       (e.currentTarget.style.backgroundColor = "#f3a847")
                     }
                     onMouseOut={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#febd69")
+                      (e.currentTarget.style.backgroundColor = "#FF9900")
                     }
                   >
                     Open Wallet
@@ -126,7 +131,7 @@ export const CustomConnectLogin = () => {
                   <div
                     style={{
                       textAlign: "left",
-                      backgroundColor: "#f8f9fa",
+                      backgroundColor: "#fff",
                       padding: "20px",
                       maxWidth: "300px",
                       fontSize: "16px",
@@ -134,11 +139,12 @@ export const CustomConnectLogin = () => {
                     }}
                   >
                     <p style={{ fontWeight: "bold", color: "#6c757d" }}>
-                      <span style={{ color: "#febd69" }}>Address:</span> {account.address}
+                      <span style={{ color: "#FF9900" }}>Address:</span>{" "}
+                      {formatAddress(account.address)}
                     </p>
                     {account.displayBalance && (
                       <p style={{ fontWeight: "bold", color: "#6c757d" }}>
-                        <span style={{ color: "#febd69" }}>Balance:</span> {account.displayBalance}
+                        <span style={{ color: "#FF9900" }}>Balance:</span> {account.displayBalance}
                       </p>
                     )}
                   </div>

@@ -94,7 +94,7 @@ export const CustomConnect = () => {
                     <span
                       style={{
                         color: "white",
-                        fontSize: "1vw",
+                        fontSize: "0.8vw",
                       }}
                     >
                       {account.displayBalance

@@ -5,17 +5,13 @@ interface ProductCardProps {
   title: string;
   price: string;
   image: string;
-  rating: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ title, price, image, rating }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ title, price, image }) => {
   return (
     <div style={styles.card}>
       <h2 style={styles.title}>{title}</h2>
       <p style={styles.price}>{price}</p>
-      <div style={styles.rating}>
-        {'★'.repeat(rating)}{'☆'.repeat(5 - rating)}
-      </div>
     </div>
   );
 };
@@ -30,7 +26,7 @@ const styles = {
     border: '0.1rem solid #ddd',
     borderRadius: '0.5rem',
     textAlign: 'center' as const,
-    boxShadow: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.3)',
     backgroundColor: '#fff',
   },
 

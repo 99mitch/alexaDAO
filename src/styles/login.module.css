@@ -1,8 +1,10 @@
 .login-page {
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
-    height: 85vh; /* Full height of the viewport */
+    height: 75vh; /* Full height of the viewport */
     background-color: #f3f4f6; /* Light background color */
     padding: 20px; /* Add some padding for smaller screens */
   }
@@ -23,16 +25,10 @@
   }
   
   .logo {
-    height: 50px;
+    height: 100px;
     margin: 0 auto;
   }
   
   .login-form {
     margin-top: 20px;
-  }
-  
-  .register-link {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
   }

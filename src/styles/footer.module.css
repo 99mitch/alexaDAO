@@ -1,0 +1,58 @@
+.footer {
+    background-color: #131921;
+    color: white;
+    padding: 20px 50px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .topSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #37475a;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .logo {
+    height: 50px;
+    margin-right: 1vw;
+  }
+  
+  .socials {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .socialButton:hover {
+    background-color: #485769;
+  }
+  
+  .socialIcon {
+    width:  30px;
+    height:  30px;
+  }
+  
+  .bottomSection {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .linkColumn {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .linkColumn h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .linkColumn p {
+    font-size: 14px;
+    color: #ccc;
+  }
+  

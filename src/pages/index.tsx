@@ -4,15 +4,16 @@ import styles from "../styles/login.module.css";
 const LoginPage = () => {
   return (
     <div className={styles["login-page"]}>
-      <div className={styles["login-container"]}>
-        {/* Logo */}
-        <div className={styles["logo-container"]}>
+                {/* Logo */}
+                <div className={styles["logo-container"]}>
           <img
-            src="/alexa.gif"
+            src="/blue-alexa.png"
             alt="Logo"
             className={styles.logo}
           />
         </div>
+      <div className={styles["login-container"]}>
+
 
         {/* Login Form */}
         <div className={styles["login-form"]}>

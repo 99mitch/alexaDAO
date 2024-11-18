@@ -1,3 +1,4 @@
+import Footer from "components/footer";
 import Navbar from "components/navbar";
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
@@ -15,6 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 };

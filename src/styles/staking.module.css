@@ -42,7 +42,7 @@
   
   .rating {
     font-size: 15px;
-    color: #ffa41c;
+    color: #FF9900;
     margin-bottom: 10px;
   }
 
@@ -136,7 +136,7 @@
   
   .maxButton {
     padding: 15px 25px;
-    background-color: #db8719;
+    background-color: #FF9900;
     color: #000000;
     font-weight: bold;
     border: none;
@@ -159,6 +159,6 @@
   }
   
   .depositButton:hover {
-    background-color: #db8719;
+    background-color: #FF9900;
   }
   

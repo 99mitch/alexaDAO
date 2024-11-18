@@ -16,6 +16,6 @@
         "incremental": true,
         "baseUrl": "./src"
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/swap.jsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/swap.jsx", "src/pages/chatbot.tsx", "src/components/landbot.tsx"],
     "exclude": ["node_modules"]
 }
